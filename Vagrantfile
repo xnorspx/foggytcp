@@ -21,7 +21,7 @@ Vagrant.configure(2) do |config|
   config.ssh.forward_agent = true
   config.vm.synced_folder "./foggytcp", "/vagrant/foggytcp/"
   config.vm.provision "shell",
-        inline: "sudo sh /vagrant/foggytcp/setup/docker-setup.sh"
+        inline: "sudo bash /vagrant/foggytcp/setup/docker-setup.sh"
   config.vm.provision "shell", inline: $VAGRANT_EXTRA_STEPS
 
   config.ssh.insert_key = false

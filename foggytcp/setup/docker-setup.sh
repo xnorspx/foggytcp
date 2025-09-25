@@ -12,6 +12,8 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+sudo bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
+
 sudo apt-get update
 
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential vim \
