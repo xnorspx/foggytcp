@@ -61,6 +61,7 @@ void* foggy_socket(const foggy_socket_type_t socket_type,
   sock->window.advertised_window = WINDOW_INITIAL_ADVERTISED;
   sock->window.congestion_window = WINDOW_INITIAL_WINDOW_SIZE;
   sock->window.reno_state = RENO_SLOW_START;
+  sock->window.base_rtt = 1000000.0; // Initialize with a large value
   pthread_mutex_init(&(sock->window.ack_lock), NULL);
 
   for (int i = 0; i < RECEIVE_WINDOW_SLOT_SIZE; ++i) {

@@ -46,6 +46,7 @@ typedef struct {
   int is_rtt_sample;
   struct timespec send_time;
   time_t timeout_interval;
+  int retransmissions; // Track retransmissions
 } send_window_slot_t;
 
 typedef struct {
@@ -73,6 +74,9 @@ typedef struct {
 
   reno_state_t reno_state;
   pthread_mutex_t ack_lock;
+  
+  // Vegas variables
+  double base_rtt; // Minimum RTT observed (ms)
 } window_t;
 
 /**
